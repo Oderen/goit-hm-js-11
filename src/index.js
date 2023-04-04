@@ -1,11 +1,11 @@
 // Imports
-import api from './main_functions';
+import reqestProcess from './main_functions';
 import axios from "axios";
 import Notiflix from 'notiflix';
 
 
 // Vars
-const newApi = new api();
+const reqestProcessing = new reqestProcess();
 const refs = {
     form: document.querySelector('.search-form'),
     input: document.querySelector('input'),
@@ -23,17 +23,17 @@ refs.form.addEventListener('submit', async (e) => {
     try {
     e.preventDefault();
     
-    newApi.query = e.currentTarget.elements.searchQuery.value.trim();
+    reqestProcessing.query = e.currentTarget.elements.searchQuery.value.trim();
     
-    if (newApi.query === '') {
+    if (reqestProcessing.query === '') {
         return Notiflix.Notify.info('Plese enter something');
     }
     
     refs.btnLoadMore.style.display = 'none';
-    newApi.clearMarkUp();
-    newApi.resetPage();
+    reqestProcessing.clearMarkUp();
+    reqestProcessing.resetPage();
         
-    const res = await newApi.fetchData();
+    const res = await reqestProcessing.fetchData();
 
     if (res) {
         refs.btnLoadMore.style.display = 'none';
@@ -48,7 +48,7 @@ refs.form.addEventListener('submit', async (e) => {
 
 refs.btnLoadMore.addEventListener('click', async (e) => {
     try { 
-    const res = await newApi.fetchData();
+    const res = await reqestProcessing.fetchData();
 
     refs.btnLoadMore.style.display = 'none';
     

@@ -21,7 +21,7 @@ const lightbox = new SimpleLightbox('.gallery a', {
           captionDelay: 250,
         });
 
-export default class ApiServise {
+export default class reqestProcess {
   constructor() {
       this.btnLoadMore = document.querySelector('.load-more');
       this.div = document.querySelector('.gallery');     
@@ -146,67 +146,3 @@ export default class ApiServise {
     return;
   }
 }
-
-
-// const { height: cardHeight } = document
-//   .querySelector(".gallery")
-//   .firstElementChild.getBoundingClientRect();
-
-// window.scrollBy({
-//   top: cardHeight * 2,
-//   behavior: "smooth",
-// });
-
-
-
-
-
-// 1. структура
-
-// 2. Синтаксис async/await (Усі fetch і then змінюй на async/await і обгортай всі операцій в try...catch щоб обробити помилку)
-
-
-// .then(r => {
-//         this.shouldBtnActive = false;
-        
-//         this.sumOfPictures(r.data.hits.length);
-
-//         if (r.data.hits.length === 0) {
-//           this.shouldBtnActive = true;
-//           Notiflix.Notify.info("Sorry, there are no images matching your search query. Please try again.");
-//           return this.shouldBtnActive;
-//         };
-        
-//         if (this.pictureAmount >= r.data.totalHits) {
-//           if (this.pictureAmount === r.data.totalHits) {
-            
-//             this.shouldBtnActive = true;
-//             this.nextPage();
-
-//             this.div.insertAdjacentHTML('beforeend', this.markUp(r.data));
-//             lightbox.refresh();
-//             this.addingStyles();
-
-//             Notiflix.Notify.success(`Hooray! We found ${r.data.hits.length} images.`);
-//             this.OldValue = this.searchQuery;
-//             this.pictureAmount = 0;
-//             return this.shouldBtnActive;
-//           }
-
-//           this.shouldBtnActive = true;
-//           this.pictureAmount = 0;
-//           Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.");
-          
-//           return this.shouldBtnActive;
-//         }
-
-//         this.nextPage();
-
-//         this.div.insertAdjacentHTML('beforeend', this.markUp(r.data));
-//         lightbox.refresh();
-//         this.addingStyles();
-
-//         Notiflix.Notify.success(`Hooray! We found ${r.data.hits.length} images.`);
-//         this.OldValue = this.searchQuery;
-//         return this.shouldBtnActive;
-//       })
